@@ -1,40 +1,44 @@
-[width="100%",cols="40%,60%",]
-|===
-2+|Conformance Class
-2+|http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitrainingdataset
-|Requirements class |/req/aitrainingdataset
-|Dependency |/conf/base/xmlbasetype
-|Dependency |/conf/base/isometadatatype
-|Dependency |/conf/aitrainingdata
-|Dependency |/conf/aitask
-|Dependency |/conf/ailabeling
-|Dependency |/conf/aidataquality
-|Dependency |/conf/aitdchangeset
-|===
+[conformance_class]
+.AI_TrainingDataset
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitrainingdataset
+target:: /req/aitrainingdataset
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/base/xmlbasetype
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/base/isometadatatype
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitrainingdata
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitask
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/ailabeling
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aidataquality
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitdchangeset
+abstract-test:: /conf/aitrainingdataset/trainingdataset
+abstract-test:: /conf/aitrainingdataset/metricsinliterature
+abstract-test:: /conf/aitrainingdataset/eotrainingdataset
+====
 
-[width="100%",cols="20%,80%",]
-|===
-2+|Abstract Test 11
-|Test ID |/conf/aitrainingdataset/trainingdataset
-|Requirement |/req/aitrainingdataset/trainingdataset
-|Test purpose |Verify that instance documents using the AI_TrainingDataset XML elements listed in Table 2 validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_trainingDataset.xsd.
-|Test method |Validate the instance document against the ai_trainingDataset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/aitrainingdataset/trainingdataset
+target:: /req/aitrainingdataset/trainingdataset
+test-purpose:: Verify that instance documents using the AI_TrainingDataset XML elements listed in <<table-ai-trainingdataset-properties>> validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_trainingDataset.xsd.
+test-method:: Validate the instance document against the ai_trainingDataset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
+====
 
-[width="100%",cols="20%,80%",]
-|===
-2+|Abstract Test 12
-|Test ID |/conf/aitrainingdataset/metricsinliterature
-|Requirement |/req/aitrainingdataset/metricsinliterature
-|Test purpose |Verify that instance documents using the AI_MetricsInLiterature XML elements listed in Table 3 validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_metricsInLiterature.xsd.
-|Test method |Validate the instance document against the ai_metricsInLiterature.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/aitrainingdataset/metricsinliterature
+target:: /req/aitrainingdataset/metricsinliterature
+test-purpose:: Verify that instance documents using the AI_MetricsInLiterature XML elements listed in <<table-ai-metricsinliterature-properties>> validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_metricsInLiterature.xsd.
+test-method:: Validate the instance document against the ai_metricsInLiterature.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
+====
 
-[width="100%",cols="20%,80%",]
-|===
-2+|Abstract Test 13
-|Test ID |/conf/aitrainingdataset/eotrainingdataset
-|Requirement |/req/aitrainingdataset/eotrainingdataset
-|Test purpose |Verify that instance documents using the AI_EOTrainingDataset XML elements listed in Table 2 and Table 4 validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_eoTrainingDataset.xsd.
-|Test method |Validate the instance document against the ai_eoTrainingDataset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/aitrainingdataset/eotrainingdataset
+target:: /req/aitrainingdataset/eotrainingdataset
+test-purpose:: Verify that instance documents using the AI_EOTrainingDataset XML elements listed in <<table-ai-trainingdataset-properties>> and <<table-ai-eotrainingdataset-properties>> validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_eoTrainingDataset.xsd.
+test-method:: Validate the instance document against the ai_eoTrainingDataset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
+====

@@ -16,26 +16,23 @@ is an important branch of artificial intelligence that gives computers the abili
 
 is a subset of machine learning, which is essentially a neural network with three or more layers. The number of layers is referred to as depth. While a neural network with a single layer can still make approximate predictions, additional hidden layers can help to optimize and refine for accuracy.
 
-[.source]
-(https://www.ibm.com/topics/deep-learning)
-
 [[training-dataset-definition]]
 === Training Dataset
 
-a collection of samples, often labeled in terms of supervised learning. A training dataset can be divided into training, validation, and test sets. Training samples are different from samples in OGC Observations & Measurements (O&M). They are often collected in purposive ways that deviate from purely probability sampling, with known or expected results labeled as values of a dependent variable for generating a trained predictive model. 
+a collection of samples, often labelled with known terms or expected values for supervised learning. A training dataset can be divided into training, validation, and test sets. Training samples are different from samples in OGC Observations & Measurements (O&M). They are often collected in purposive ways that deviate from purely probability sampling, with known or expected results labeled as values of a dependent variable for generating a trained predictive model. 
 
 [[label-definition]]
 === Label
 
 refers to known or expected results annotated as values of a dependent variable in training samples. A training sample label is different from those on a geographical map, which are known as map labels or annotations.
 
+NOTE: A training sample label is different from those on a geographical map, which are known as map labels or annotations. 
+
+
 [[provenance-definition]]
 === Provenance
 
 information about entities, activities, and people involved in producing a piece of data or thing, which can be used to form assessments about its quality, reliability or trustworthiness.  In this standard provenance is a record of how training data were prepared.
-
-[.source]
-(W3C,https://www.w3.org/TR/prov-overview/)
 
 [[quality-definition]]
 === Quality
@@ -46,9 +43,6 @@ degree to which a set of inherent characteristics fulfils requirements [ISO 9000
 === Earth Observation
 
 data and information collected about our planet, whether atmospheric, oceanic or terrestrial. This includes space-based or remotely-sensed data, as well as ground-based or in situ data.
-
-[.source]
-(GEO, https://earthobservations.org/geo_wwd.php)
 
 [[scene-classification-definition]]
 === Scene Classification
@@ -68,7 +62,7 @@ task of assigning class labels to pixels of images or points of point clouds.
 [[change-detection-definition]]
 === Change Detection
 
-task that finds the changes in an area between images taken at different times.
+recognition of changes between images acquired at different times.
 
 [[threed-model-reconstruction-definition]]
 === 3D Model Reconstruction

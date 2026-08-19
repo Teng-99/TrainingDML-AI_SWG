@@ -5,7 +5,11 @@ identifier:: http://www.opengis.net/spec/TrainingDML-AI-1/1.0/req/aitrainingdata
 
 subject:: Implementation Standard
 
+inherit:: ISO 19103:2024
+
 inherit:: ISO 19115-1:2014
+
+inherit:: ISO 19156:2023
 
 inherit:: /req/aitrainingdata
 

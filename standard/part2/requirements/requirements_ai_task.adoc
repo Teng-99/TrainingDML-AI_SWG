@@ -1,22 +1,24 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/aitask
 |Dependency |JSON
 |Dependency |/req/base/jsonbasetype
-|Requirement 17 |/req/aitask/task
-|Requirement 18 |/req/aitask/eotask
+|Requirement 20|/req/aitask/task
+|Requirement 21|/req/aitask/eotask
 |===
 
-The AI_Task object is encoded as a JSON object with properties as shown in Table 7.
+The AI_Task object is encoded as a JSON object with properties as shown in <<table-ai-task-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 17 |/req/aitask/task
+|Requirement 20
+a|/req/aitask/task
 
-Each AI_Task object SHALL implement the Mandatory properties shown in Table 7.
+Each AI_Task object SHALL implement the Mandatory properties shown in <<table-ai-task-properties>>.
 |===
 
+[[table-ai-task-properties]]
 .AI_Task properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -29,21 +31,26 @@ Each AI_Task object SHALL implement the Mandatory properties shown in Table 7.
 
 Example:
 
- {
-   "type": "AI_AbstractTask",
-   "id": "image-indexing-task",
-   "description": "Structural high-resolution satellite image indexing"
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_AbstractTask",
+  "id": "image-indexing-task",
+  "description": "Structural high-resolution satellite image indexing"
+}
+----
 
-The AI_EOTask object is encoded as a JSON object with properties both shown in Table 7 and Table 8.
+The AI_EOTask object is encoded as a JSON object with properties both shown in <<table-ai-task-properties>> and <<table-ai-eotask-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 18 |/req/aitask/eotask
+|Requirement 21
+a|/req/aitask/eotask
 
-Each AI_EOTask object SHALL implement the Mandatory properties shown in Table 7 and Table 8.
+Each AI_EOTask object SHALL implement the Mandatory properties shown in <<table-ai-task-properties>> and <<table-ai-eotask-properties>>.
 |===
 
+[[table-ai-eotask-properties]]
 .AI_EOTask properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -54,9 +61,12 @@ Each AI_EOTask object SHALL implement the Mandatory properties shown in Table 7 
 
 Example:
 
- {
-   "type": "AI_EOTask",
-   "id": "image-indexing-task",
-   "description": "Structural high-resolution satellite image indexing",
-   "taskType": "Scene Classification"
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_EOTask",
+  "id": "image-indexing-task",
+  "description": "Structural high-resolution satellite image indexing",
+  "taskType": "Scene Classification"
+}
+----

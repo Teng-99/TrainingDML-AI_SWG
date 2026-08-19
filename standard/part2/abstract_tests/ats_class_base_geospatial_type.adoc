@@ -1,15 +1,17 @@
-[width="100%",cols="40%,60%",]
-|===
-2+|Conformance Class
-2+|http://www.opengis.net/spec/TrainingDML-AI-2/1.0/conf/base/geospatialtype
-|Requirements class |/req/base/geospatialtype
-|===
+[conformance_class]
+.Geospatial Type
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/TrainingDML-AI-2/1.0/conf/base/geospatialtype
+target:: /req/base/geospatialtype
+abstract-test:: /conf/base/geospatialtype/feature
+====
 
-[width="100%",cols="20%,80%",]
-|===
-2+|Abstract Test 10
-|Test ID |/conf/base/geospatialtype/feature
-|Requirement |/req/base/geospatialtype/feature
-|Test purpose |Verify that instance documents using the Feature JSON objects validate against the JSON schema specified in https://geojson.org/schema/Feature.json.
-|Test method |Validate the instance document against the feature.json schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the JSON schema specification.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/base/geospatialtype/feature
+target:: /req/base/geospatialtype/feature
+test-purpose:: Verify that instance documents using the Feature JSON objects validate against the JSON schema specified in https://geojson.org/schema/Feature.json.
+test-method:: Validate the instance document against the feature.json schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the JSON schema specification.
+====

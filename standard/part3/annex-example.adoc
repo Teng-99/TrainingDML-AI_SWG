@@ -1,6 +1,6 @@
-[appendix]
+[appendix,obligation=informative]
 [[annex-example]]
-== Example (Informative)
+== Example
 
 === TrainingDataset Encoding Examples
 

@@ -1,4 +1,4 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/aitrainingdata
@@ -8,20 +8,22 @@
 |Dependency |/req/ailabel
 |Dependency |/req/ailabeling
 |Dependency |/req/aidataquality
-|Requirement 14 |/req/aitrainingdata/trainingdata
-|Requirement 15 |/req/aitrainingdata/trainingtypecode
-|Requirement 16 |/req/aitrainingdata/eotrainingdata
+|Requirement 17|/req/aitrainingdata/trainingdata
+|Requirement 18|/req/aitrainingdata/trainingtypecode
+|Requirement 19|/req/aitrainingdata/eotrainingdata
 |===
 
-The AI_TrainingData object is encoded as a JSON object with properties shown in Table 5.
+The AI_TrainingData object is encoded as a JSON object with properties shown in <<table-ai-trainingdata-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 14 |/req/aitrainingdataset/trainingdata
+|Requirement 17
+a|/req/aitrainingdata/trainingdata
 
-Each AI_TrainingData object SHALL implement the Mandatory properties shown in Table 5.
+Each AI_TrainingData object SHALL implement the Mandatory properties shown in <<table-ai-trainingdata-properties>>.
 |===
 
+[[table-ai-trainingdata-properties]]
 .AI_TrainingData properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -32,71 +34,126 @@ Each AI_TrainingData object SHALL implement the Mandatory properties shown in Ta
 |trainingType |Training type of the individual AI training sample. |AI_TrainingTypeCode [0..1] |Optional
 |numberOfLabels |Total number of labels in the individual AI training sample. |Int [0..1] |Optional
 |dataSources |Citation of inputs to prepare a training sample. |CI_Citation [0..*] |Optional
-|labels |Labels in the training data. |AI_Label [1..*] |Mandatory
+|extent |Spatial extent of the individual training sample. |EX_Extent [0..1] |Optional
+|dataTime |Date and time at which the geospatial data were obtained. |DateTime [0..*] |Optional
+|lineage |Information about the provenance, source(s), and/or the production process(es) applied to the training sample. |LI_Lineage [0..*] |Optional
+|labels |Labels in the training data. |AI_Label [0..*] |Optional
 |labeling |Provenance information of how the training data is labeled. |AI_Labeling [0..*] |Optional
 |quality |Quality information of the training data. |DataQuality [0..*] |Optional
 |===
 
 Example:
 
- {
-   "type": "AI_AbstractTrainingData",
-   "id": "airport_01",
-   "dataSources": [{"title": "googleEarth"}],
-   "dataURL": ["image/Airport/airport_01.jpg"],
-   "labels": [{"type": "AI_SceneLabel", "class": "Airport"}]
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_AbstractTrainingData",
+  "id": "airport_01",
+  "dataSources": [
+    {
+      "title": "googleEarth"
+    }
+  ],
+  "extent": {
+    "geographicElement": [
+      {
+        "westBoundLongitude": -171.76409,
+        "eastBoundLongitude": -171.56578,
+        "southBoundLatitude": -14.42443,
+        "northBoundLatitude": -14.32568
+      }
+    ]
+  },
+  "dataTime": [
+    "2002-05-30T09:30:10Z"
+  ],
+  "labels": [
+    {
+      "type": "AI_SceneLabel",
+      "class": "Airport"
+    }
+  ]
+}
+----
 
 The AI_TrainingTypeCode is encoded as a text string whose value is one of "training", "validation", "test" or "retraining".
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 15 |/req/aitrainingdataset/trainingtypecode
+|Requirement 18
+a|/req/aitrainingdata/trainingtypecode
 
 Each AI_TrainingTypeCode value SHALL be a text string whose value is one of "training", "validation", "test" or "retraining".
 |===
 
 Examples:
 
+[source%unnumbered,text]
+----
  a)	"training" 
  b)	"validation"
  c)	"test" 
  d)	"retraining"
+----
 
-The AI_EOTrainingData object is encoded as a JSON object with properties both shown in Table 5 and Table 6.
+The AI_EOTrainingData object is encoded as a JSON object with properties both shown in <<table-ai-trainingdata-properties>> and <<table-ai-eotrainingdata-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 16 |/req/aitrainingdataset/eotrainingdata
+|Requirement 19
+a|/req/aitrainingdata/eotrainingdata
 
-Each AI_EOTrainingData object SHALL implement the Mandatory properties as defined in Table 5 and Table 6.
+Each AI_EOTrainingData object SHALL implement the Mandatory properties as defined in <<table-ai-trainingdata-properties>> and <<table-ai-eotrainingdata-properties>>.
 |===
 
+[[table-ai-eotrainingdata-properties]]
 .AI_EOTrainingData properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |JSON Property |Definition |Data type and values |Obligation
-|type |Type of the EO training data. |"AI_EOTrainingData" |Mandatory
-|extent |Spatial extent of the individual EO training sample. |EX_Extent [0..1] |Optional
-|dataTime |Date time when the EO data was obtained. |DateTime [0..*] |Optional
-|dataURL |URL of the EO data, including both relative and absolute paths, which can encompass local paths, network addresses, and more. |URL [1..*] |Mandatory
+|spatialResolution |Spatial resolution of the individual EO training sample. |MD_Resolution [0..1] |Optional
+|dataURL |URLs of the EO data, including both relative and absolute paths, which can encompass local paths, network addresses, and more. |URI [1..*] |Mandatory
 |===
 
 Example:
 
- {
-   "type": "AI_EOTrainingData",
-   "id": "airport_01",
-   "dataSources": [{"title": "googleEarth"}],
-   "extent": {
-      "geographicElement": [{
-         "westBoundLongitude": -171.76409,
-         "eastBoundLongitude": -171.56578,
-         "southBoundLatitude": -14.42443,
-         "northBoundLatitude": -14.32568
-      }]
-   },
-   "dataTime": ["2002-05-30T09:30:10Z"],
-   "dataURL": ["image/Airport/airport_01.jpg"],
-   "labels": [{"type": "AI_SceneLabel", "class": "Airport"}]
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_EOTrainingData",
+  "id": "airport_01",
+  "dataSources": [
+    {
+      "title": "googleEarth"
+    }
+  ],
+  "extent": {
+    "geographicElement": [
+      {
+        "westBoundLongitude": -171.76409,
+        "eastBoundLongitude": -171.56578,
+        "southBoundLatitude": -14.42443,
+        "northBoundLatitude": -14.32568
+      }
+    ]
+  },
+  "dataTime": [
+    "2002-05-30T09:30:10Z"
+  ],
+  "dataURL": [
+    "image/Airport/airport_01.jpg"
+  ],
+  "spatialResolution": {
+    "distance": {
+      "value": "0.5",
+      "uom": "m"
+    }
+  },
+  "labels": [
+    {
+      "type": "AI_SceneLabel",
+      "class": "Airport"
+    }
+  ]
+}
+----

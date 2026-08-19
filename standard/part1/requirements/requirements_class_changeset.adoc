@@ -3,5 +3,6 @@
 [%metadata]
 identifier:: http://www.opengis.net/spec/TrainingDML-AI-1/1.0/req/aitdchangeset
 subject:: Implementation Standard
+inherit:: ISO 19103:2024
 inherit:: /req/aitrainingdata
 ====

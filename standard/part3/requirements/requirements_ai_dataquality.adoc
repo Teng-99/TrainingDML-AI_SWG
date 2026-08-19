@@ -1,4 +1,4 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/aidataquality
@@ -6,30 +6,34 @@
 |Dependency |/req/base/xmlbasetype
 |Dependency |/req/base/isometadatatype
 |Dependency |/req/base/isoqualitytype
-|Requirement 28|/req/aidataquality/classbalancedegree
+|Requirement 31|/req/aidataquality/classbalancedegree
 |===
 
-The AI_ClassBalanceDegree object is encoded as an XML element with properties as shown in Table 16.
+The AI_ClassBalanceDegree object is encoded as an XML element with properties as shown in <<table-ai-classbalancedegree-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 28|/req/aidataquality/classbalancedegree
+|Requirement 31
+a|/req/aidataquality/classbalancedegree
 
-Each AI_ClassBalanceDegree object SHALL implement the Mandatory properties as shown in Table 16.
+Each AI_ClassBalanceDegree object SHALL implement the Mandatory properties as shown in <<table-ai-classbalancedegree-properties>>.
 |===
 
-.AI_ ClassBalanceDegree properties
+[[table-ai-classbalancedegree-properties]]
+.AI_ClassBalanceDegree properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |XML Property |Definition |Data type and values |Obligation
 |type |Type of the class balance degree object. |"AI_ClassBalanceDegree" |Mandatory
 |measure |Reference to measure used. |MeasureReference [1..1] |Mandatory
-|evaluationMethod |Evaluation information. |EvaluationMethod [1..1] |Mandatory
+|evaluationMethod |Evaluation information. |EvaluationMethod [1..*] |Mandatory
 |result |Value obtained from applying a data quality measure. |QualityResult [1..*] |Mandatory
 |===
 
 Example:
 
+[source%unnumbered,xml]
+----
   <type>AI_ClassBalanceDegree</type>
   <measure>
     <measureDescription>
@@ -51,3 +55,4 @@ Example:
         </valueUnit>
     </quantitativeResult>
   </result>
+----

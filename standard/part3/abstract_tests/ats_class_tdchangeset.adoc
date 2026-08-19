@@ -1,17 +1,19 @@
-[width="100%",cols="40%,60%",]
-|===
-2+|Conformance Class
-2+|http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitdchangeset
-|Requirements class |/req/aitdchangeset
-|Dependency |/conf/base/xmlbasetype
-|Dependency |/conf/aitrainingdata
-|===
+[conformance_class]
+.AI_TDChangeset
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitdchangeset
+target:: /req/aitdchangeset
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/base/xmlbasetype
+inherit:: http://www.opengis.net/spec/TrainingDML-AI-3/1.0/conf/aitrainingdata
+abstract-test:: /conf/aitdchangeset/tdchangeset
+====
 
-[width="100%",cols="20%,80%",]
-|===
-2+|Abstract Test 29
-|Test ID |/conf/aitdchangeset/tdchangeset
-|Requirement |/req/aitdchangeset/tdchangeset
-|Test purpose |Verify that instance documents using the AI_TDChangeset XML elements listed in Table 17 validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_tdChangeset.xsd.
-|Test method |Validate the instance document against the ai_tdChangeset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/aitdchangeset/tdchangeset
+target:: /req/aitdchangeset/tdchangeset
+test-purpose:: Verify that instance documents using the AI_TDChangeset XML elements listed in <<table-ai-tdchangeset-properties>> validate against the XML schema specified in http://schemas.opengis.net/trainingdml-ai/part3/1.0/ai_tdChangeset.xsd.
+test-method:: Validate the instance document against the ai_tdChangeset.xsd schema to verify the above requirement. The process may be using an appropriate software tool for validation or be a manual process that checks all definitions from the XML schema specification.
+====

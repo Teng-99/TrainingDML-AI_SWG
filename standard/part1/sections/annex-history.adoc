@@ -13,5 +13,5 @@
 |2023-04-23 |0.8 |Peng Yue, Boyi Shangguan, Ruixiang Liu |Chapter 6.3.4, 7.9, Annex A |Revisions after OGC-NA review and OAB review.
 |2023-05-17 |0.9 |Peng Yue, Boyi Shangguan, Ruixiang Liu |Chapter 3, 4, Annex D |Revisions after public comments and submission for TC vote.
 |2023-08-04 |1.0 |Peng Yue, Boyi Shangguan, Ruixiang Liu |General editorial |Revisions before publishing.
-
+|2026-02-28 |1.0.1 |Peng Yue, Baoxin Teng |Most |Revisions based on the OAB comments on Parts 2&3, and the DIS comments on ISO 19178-1.
 |===
