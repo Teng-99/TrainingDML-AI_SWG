@@ -1,25 +1,27 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/ailabeling
 |Dependency |JSON
 |Dependency |/req/base/jsonbasetype
 |Dependency |/req/base/isometadatatype
-|Requirement 24 |/req/ailabeling/labeling
-|Requirement 25 |/req/ailabeling/labeler
-|Requirement 26 |/req/ailabeling/labelingprocedure
-|Requirement 27 |/req/ailabeling/labelingmethodcode
+|Requirement 27|/req/ailabeling/labeling
+|Requirement 28|/req/ailabeling/labeler
+|Requirement 29|/req/ailabeling/labelingprocedure
+|Requirement 30|/req/ailabeling/labelingmethodcode
 |===
 
-The AI_Labeling object is encoded as a JSON object with properties shown in Table 13.
+The AI_Labeling object is encoded as a JSON object with properties shown in <<table-ai-labeling-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 24 |/req/ailabeling/labeling
+|Requirement 27
+a|/req/ailabeling/labeling
 
-Each AI_Labeling object SHALL implement the Mandatory properties shown in Table 13.
+Each AI_Labeling object SHALL implement the Mandatory properties shown in <<table-ai-labeling-properties>>.
 |===
 
+[[table-ai-labeling-properties]]
 .AI_Labeling properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -27,34 +29,49 @@ Each AI_Labeling object SHALL implement the Mandatory properties shown in Table 
 |type |Type of the labeling object. |"AI_Labeling" |Mandatory
 |id |Identifier of the labeling. |CharacterString [1..1] |Mandatory
 |scope |Description of the scope of the labeling. |MD_Scope [1..1] |Mandatory
+|labelingTime |Date and time at which the labeling procedure was carried out. |DateTime [0..1] |Optional
 |labelers |Labelers of the labeling activity. |AI_Labeler [0..*] |Optional
 |procedure |Procedure used in the labeling activity. |AI_LabelingProcedure [0..1] |Optional
 |===
 
 Example:
 
- {
-   "type": "AI_Labeling",
-   "id": "0",
-   "scope": {
-      "level": "dataset",
-      "levelDescription": [{
-         "dataset": "whu_rs19"
-      }]
-   },
-   "labelers": [{..}],
-   "procedure": {..}
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_Labeling",
+  "id": "0",
+  "scope": {
+    "level": "dataset",
+    "levelDescription": [
+      {
+        "dataset": "whu_rs19"
+      }
+    ]
+  },
+  "labelingTime": "2015-04-20T07:04:15Z",
+  "labelers": [
+    {
+      ..
+    }
+  ],
+  "procedure": {
+    ..
+  }
+}
+----
 
-The AI_Labeler object is encoded as a JSON object with properties as shown in Table 14.
+The AI_Labeler object is encoded as a JSON object with properties as shown in <<table-ai-labeler-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 25 |/req/ailabeling/labeler
+|Requirement 28
+a|/req/ailabeling/labeler
 
-Each AI_Labeler object SHALL implement the Mandatory properties shown in Table 14.
+Each AI_Labeler object SHALL implement the Mandatory properties shown in <<table-ai-labeler-properties>>.
 |===
 
+[[table-ai-labeler-properties]]
 .AI_Labeler properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -66,21 +83,26 @@ Each AI_Labeler object SHALL implement the Mandatory properties shown in Table 1
 
 Example:
 
- {
-   "type": "AI_Labeler",
-   "id": "0",
-   "name": "Tom"
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_Labeler",
+  "id": "0",
+  "name": "Tom"
+}
+----
 
-An AI_LabelingProcedure object is encoded as a JSON object with properties as shown in Table 15.
+An AI_LabelingProcedure object is encoded as a JSON object with properties as shown in <<table-ai-labelingprocedure-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 26 |/req/ailabeling/labelingprocedure
+|Requirement 29
+a|/req/ailabeling/labelingprocedure
 
-Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown in Table 15.
+Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown in <<table-ai-labelingprocedure-properties>>.
 |===
 
+[[table-ai-labelingprocedure-properties]]
 .AI_LabelingProcedure properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -93,25 +115,36 @@ Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown 
 
 Example:
 
- {
-   "type": "AI_LabelingProcedure",
-   "id": "0",
-   "methods": ["manual"],
-   "tools": ["ArcGIS"]
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_LabelingProcedure",
+  "id": "0",
+  "methods": [
+    "manual"
+  ],
+  "tools": [
+    "ArcGIS"
+  ]
+}
+----
 
 The AI_LabelingMethodCode is encoded as a text string whose value is one of "manual", "semi-automatic", "automatic" or "unknown".
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 27 |/req/ailabeling/labelingmethodcode
+|Requirement 30
+a|/req/ailabeling/labelingmethodcode
 
 Each AI_LabelingMethodCode value SHALL be a text string whose value is one of "manual", "semi-automatic", "automatic" or "unknown".
 |===
 
 Examples:
 
+[source%unnumbered,text]
+----
  a)	"manual" 
  b)	"semi-automatic"
  c)	"automatic"
  d)	"unknown"
+----

@@ -21,8 +21,11 @@ The ISO classes explicitly used in the TrainingDML-AI UML model are introduced i
 |Feature |Abstraction of real world phenomena.
 |MD_Band |Range of wavelengths in the electromagnetic spectrum.
 |MD_Scope |The target resource and physical extent for which information is reported.
+|MD_ReferenceSystem |Information about the reference system.
+|LI_Lineage |Information about the events or source data used in constructing the data specified by the scope or lack of knowledge about lineage.
 |EX_Extent |Extent of the resource.
 |CI_Citation |Standardized resource reference.
+|MD_Resolution |Level of detail expressed as a scale factor, a distance or an angle.
 |DataQuality |Quality information for the data specified by a data quality scope.
 |QualityElement |Aspect of quantitative quality information.
 |===
@@ -55,7 +58,7 @@ include::../requirements/requirements_class_trainingdataset.adoc[]
 
 An AI training dataset is represented as AI_AbstractTrainingDataset. Each training sample in the dataset is represented as AI_AbstractTrainingData. A set of basic attributes are defined at the collection level for AI_AbstractTrainingDataset. These include the identification, authorship, time for creation and update, AI tasks, number of training samples (amountOfTrainingData), label semantics (classes recording the available semantic classes), number of label classes, and statistics of training samples in each class (statisticsInfo). These basic attributes at the collection level can also be seen as a minimum set of metadata to define a simple payload. In this context, payload means the actual content that will be transmitted on the Web. They can be mapped to the MD_Metadata entity properties in ISO 19115, and thus delegate the metadata description via a metadata association to existing metadata standards.
 
-The AI_EOTrainingDataset is defined to convey attributes specific to EO. For example, the data source (e.g., EO images), image size, band information, and spatial extent are defined in AI_EOTrainingDataset.
+The AI_EOTrainingDataset is defined to convey attributes specific to EO. For example, the image size and band information are defined in AI_EOTrainingDataset.
 
 The UML diagram of the AI_TrainingDataset is illustrated in <<figure-uml-trainingdataset>>.
 
@@ -83,9 +86,8 @@ include::../requirements/requirement_trainingdataset.adoc[]
 [width="100%",cols="34%,66%",options="header",]
 |===
 |Name |Description
-|
-AI_MetricsInLiterature
-\<<DataType>>
+|AI_MetricsInLiterature +
+«DataType»
 |AI_MetricsInLiterature records results of performance metrics achieved by AI/ML algorithms in the peer-reviewed literature.
 |===
 
@@ -93,9 +95,9 @@ AI_MetricsInLiterature
 
 include::../requirements/requirements_class_trainingdata.adoc[]
 
-The AI_AbstractTrainingData includes the source data and its corresponding labels, which focus on a compact modeling of individual training samples. When there is a need to identify the different uses/purposes, an optional attribute, the training type (training, validation, or test types), can be added at the individual level. The attribute datasetId helps identify samples from different training datasets.
+The AI_AbstractTrainingData includes the source data and its corresponding labels, which focus on a compact modeling of individual training samples. When there is a need to identify the different uses/purposes, an optional attribute, the training type (training, validation, test, or retraining types), can be added at the individual level. The attribute datasetId helps identify samples from different training datasets.
 
-The AI_EOTrainingData is defined to convey attributes specific to EO. It provides additional attributes, including spatial extent and date/time of the source EO inputs.
+The AI_EOTrainingData is defined to convey attributes specific to EO. It provides additional attributes, including spatial resolution and urls of the source EO inputs.
 
 The UML diagram of the AI_TrainingData is illustrated in <<figure-uml-trainingdata>>.
 
@@ -129,8 +131,8 @@ include::../requirements/requirement_trainingdata.adoc[]
 [width="100%",cols="34%,66%",options="header",]
 |===
 |Name |Description
-|AI_TrainingTypeCode
-\<<CodeList>>
+|AI_TrainingTypeCode +
+«CodeList»
 |AI_TrainingTypeCode is a code list used to identify whether the individual data element is used for different purposes.
 |===
 
@@ -138,7 +140,7 @@ include::../requirements/requirement_trainingdata.adoc[]
 
 include::../requirements/requirements_class_task.adoc[]
 
-Various AI/ML tasks in specific domains can have different organizing forms of TD, including source data and label representations. AI_EOTask is proposed by extending AI_AbstractTask to represent specific AI/ML tasks in the EO domain. The task type can refer to a particular type defined by an external category, such as scene classification or change detection. It specifies, for example, whether a remote sensing training dataset is used for scene classification, objection detection, land use or land cover, or change detection scenarios.
+Various AI/ML tasks in specific domains can have different organizing forms of TD, including source data and label representations. AI_EOTask is proposed by extending AI_AbstractTask to represent specific AI/ML tasks in the EO domain. The task type can refer to a particular type defined by an external category, such as scene classification or change detection. It specifies, for example, whether a remote sensing training dataset is used for scene classification, object detection, land use or land cover, or change detection scenarios.
 
 The UML diagram of the AI_Task is illustrated in <<figure-uml-task>>.
 
@@ -174,6 +176,12 @@ The UML diagram of the AI_Label is illustrated in <<figure-uml-label>>.
 .UML diagram of AI_Label.
 image::figures/uml_model_label.jpg[]
 
+The Code Lists provided for the AI_Label are illustrated in <<figure-uml-label-codelist>>.
+
+.Code lists from the AI_Label.
+[[figure-uml-label-codelist]]
+image::figures/uml_model_label_codelist.jpg[]
+
 ==== Requirements
 
 The following requirement defines the rules governing the implementation of the AI_Label conceptual model as an implementation standard.
@@ -192,6 +200,15 @@ include::../requirements/requirement_label.adoc[]
 |AI_PixelLabel |AI_PixelLabel represents the pixel level label using a coverage.
 |===
 
+.Code list classes defined in AI_Label
+[width="100%",cols="34%,66%",options="header",]
+|===
+|Name |Description
+|AI_ImageFormatCode +
+«CodeList»
+|AI_ImageFormatCode is a code list used to specify the MIME type of an image.
+|===
+
 === AI_Labeling
 
 include::../requirements/requirements_class_labeling.adoc[]
@@ -208,6 +225,12 @@ The UML diagram of the AI_Labeling is illustrated in <<figure-uml-labeling>>.
 .UML diagram of AI_Labeling.
 image::figures/uml_model_labeling.jpg[]
 
+The Code Lists provided for the AI_Labeling are illustrated in <<figure-uml-labeling-codelist>>.
+
+.Code lists from the AI_Labeling.
+[[figure-uml-labeling-codelist]]
+image::figures/uml_model_labeling_codelist.jpg[]
+
 ==== Requirements
 
 The following requirement defines the rules governing the implementation of the AI_Labeling conceptual model as an implementation standard.
@@ -223,6 +246,15 @@ include::../requirements/requirement_labeling.adoc[]
 |AI_Labeling |AI_Labeling defines basic provenance information on how to create the training dataset and includes the labeler and labeling procedure.
 |AI_Labeler |AI_Labeler identifies the agent that creates the labels and can be mapped to the agent in W3C PROV.
 |AI_LabelingProcedure |AI_LabelingProcedure represents the process for labeling and can be mapped to the activity in W3C PROV.
+|===
+
+.Code list classes defined in AI_Labeling
+[width="100%",cols="34%,66%",options="header",]
+|===
+|Name |Description
+|AI_LabelingMethodCode +
+«CodeList»
+|AI_LabelingMethodCode is a code list used to identify the methods used in the labeling procedure.
 |===
 
 === AI_TDChangeset

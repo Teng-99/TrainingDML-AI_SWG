@@ -1,4 +1,4 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/base/isometadatatype
@@ -7,13 +7,17 @@
 |Requirement 6|/req/base/isometadatatype/extent
 |Requirement 7|/req/base/isometadatatype/citation
 |Requirement 8|/req/base/isometadatatype/scope
+|Requirement 9|/req/base/isometadatatype/referencesystem
+|Requirement 10|/req/base/isometadatatype/lineage
+|Requirement 11|/req/base/isometadatatype/resolution
 |===
 
 The MD_Band is encoded as an XML element.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 5|/req/base/isometadatatype/band
+|Requirement 5
+a|/req/base/isometadatatype/band
 
 Each MD_Band value SHALL be encoded as an XML element matching the XML Schema type as defined in:
 
@@ -22,6 +26,8 @@ https://schemas.isotc211.org/19115/-1/mrc/1.3.0/content.xsd
 
 Examples:
 
+[source%unnumbered,xml]
+----
  a) <mrc:name>
         <mcc:MD_Identifier>
             <mcc:code>
@@ -47,13 +53,15 @@ Examples:
             <gml:identifier codeSpace="http://www.example.com/">nm</gml:identifier>
         </gml:UnitDefinition>
     </mrc:boundUnits>
+----
 
 
-An The EX_Extent is encoded as an XML element.
+The EX_Extent is encoded as an XML element.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 6|/req/base/isometadatatype/extent
+|Requirement 6
+a|/req/base/isometadatatype/extent
 
 Each EX_Extent value SHALL be encoded as an XML element matching the XML Schema type as defined in:
 
@@ -62,6 +70,8 @@ https://schemas.isotc211.org/19115/-1/gex/1.3.0/extent.xsd
 
 Examples:
 
+[source%unnumbered,xml]
+----
  a) <gex:geographicElement>
         <gex:EX_BoundingPolygon>
             <gex:polygon>
@@ -93,12 +103,14 @@ Examples:
             </gex:northBoundLatitude>
         </gex:EX_GeographicBoundingBox>
     </gex:geographicElement>
+----
 
 The CI_Citation is encoded as an XML element.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 7|/req/base/isometadatatype/citation
+|Requirement 7
+a|/req/base/isometadatatype/citation
 
 Each CI_Citation value SHALL be encoded as an XML element matching the XML Schema type as defined in:
 
@@ -107,6 +119,8 @@ https://schemas.isotc211.org/19115/-1/cit/1.3.0/citation.xsd
 
 Example:
 
+[source%unnumbered,xml]
+----
     <cit:title>
         <gco:CharacterString>Open Geospatial Consortium</gco:CharacterString>
     </cit:title>
@@ -123,12 +137,14 @@ Example:
             </mcc:version>
         </mcc:MD_Identifier>
     </cit:identifier>
+----
 
 The MD_Scope is encoded as an XML element.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 8|/req/base/isometadatatype/scope
+|Requirement 8
+a|/req/base/isometadatatype/scope
 
 Each MD_Scope value SHALL be encoded as an XML element matching the XML Schema type as defined in:
 
@@ -137,6 +153,8 @@ https://schemas.isotc211.org/19115/-1/mcc/1.3.0/commonClasses.xsd
 
 Examples:
 
+[source%unnumbered,xml]
+----
  a) <mcc:level>
         <mcc:MD_ScopeCode codeList="http://standards.iso.org/iso/19115/resources/Codelist/cat/codelists.xml#MD_ScopeCode" codeListValue="dataset"/>
     </mcc:level>
@@ -202,3 +220,162 @@ Examples:
             </gex:geographicElement>
         </gex:EX_Extent>
     </mcc:extent>
+----
+
+The MD_ReferenceSystem is encoded as an XML object.
+
+[width="100%",cols="20%,80%",options="unnumbered"]
+|===
+|Requirement 9
+a|/req/base/isometadatatype/referencesystem
+
+Each MD_ReferenceSystem value SHALL be encoded as an XML object matching the XML Schema type as defined in:
+
+https://standards.iso.org/iso/19115/-3/mrs/1.0/referenceSystem.xsd
+|===
+
+Examples:
+
+[source%unnumbered,xml]
+----
+ a) <mrs:referenceSystemIdentifier>
+        <mcc:MD_Identifier>
+            <mcc:code>
+                <gco:CharacterString>EPSG:3857</gco:CharacterString>
+            </mcc:code>
+        </mcc:MD_Identifier>
+    </mrs:referenceSystemIdentifier>
+ b) <mrs:referenceSystemIdentifier>
+        <mcc:MD_Identifier>
+            <mcc:code>
+                <gco:CharacterString>EPSG:4326</gco:CharacterString>
+            </mcc:code>
+        </mcc:MD_Identifier>
+    </mrs:referenceSystemIdentifier>
+----
+
+The LI_Lineage is encoded as an XML object.
+
+[width="100%",cols="20%,80%",options="unnumbered"]
+|===
+|Requirement 10
+a|/req/base/isometadatatype/lineage
+
+Each LI_Lineage value SHALL be encoded as an XML object matching the XML Schema type as defined in:
+
+https://schemas.isotc211.org/19115/-1/mrl/1.3.0/lineage.xsd
+|===
+
+Examples:
+
+[source%unnumbered,xml]
+----
+<mrl:LI_Lineage>
+    <mrl:statement>
+        <gco:CharacterString>
+            The dataset was generated from high-resolution satellite imagery through a standardized
+            preprocessing and manual labeling workflow for AI model training.
+        </gco:CharacterString>
+    </mrl:statement>
+    <mrl:source>
+        <mrl:LI_Source>
+            <mrl:description>
+                <gco:CharacterString>
+                    High-resolution multispectral satellite imagery acquired in 2023 covering urban
+                    areas.
+                </gco:CharacterString>
+            </mrl:description>
+            <mrl:sourceCitation>
+                <cit:CI_Citation>
+                    <cit:title>
+                        <gco:CharacterString>
+                            Urban Satellite Imagery Dataset 2023
+                        </gco:CharacterString>
+                    </cit:title>
+                </cit:CI_Citation>
+            </mrl:sourceCitation>
+        </mrl:LI_Source>
+    </mrl:source>
+    <mrl:processStep>
+        <mrl:LI_ProcessStep>
+            <mrl:description>
+                <gco:CharacterString>
+                    Radiometric calibration and geometric correction were applied to the raw
+                    satellite
+                    images.
+                </gco:CharacterString>
+            </mrl:description>
+            <mrl:rationale>
+                <gco:CharacterString>
+                    To ensure spatial alignment and consistent reflectance values for subsequent
+                    labeling.
+                </gco:CharacterString>
+            </mrl:rationale>
+            <mrl:stepDateTime>
+                <gml:TimeInstant>
+                    <gml:timePosition>2023-06-15T10:00:00Z</gml:timePosition>
+                </gml:TimeInstant>
+            </mrl:stepDateTime>
+        </mrl:LI_ProcessStep>
+    </mrl:processStep>
+    <mrl:processStep>
+        <mrl:LI_ProcessStep>
+            <mrl:description>
+                <gco:CharacterString>
+                    Trained annotators manually labeled buildings and roads using a GIS-based
+                    annotation
+                    platform.
+                </gco:CharacterString>
+            </mrl:description>
+            <mrl:rationale>
+                <gco:CharacterString>
+                    To generate high-quality ground truth data for supervised deep learning models.
+                </gco:CharacterString>
+            </mrl:rationale>
+            <mrl:stepDateTime>
+                <gml:TimePeriod>
+                    <gml:beginPosition>2023-06-20</gml:beginPosition>
+                    <gml:endPosition>2023-07-10</gml:endPosition>
+                </gml:TimePeriod>
+            </mrl:stepDateTime>
+        </mrl:LI_ProcessStep>
+    </mrl:processStep>
+</mrl:LI_Lineage>
+----
+
+The MD_Resolution is encoded as an XML object.
+
+[width="100%",cols="20%,80%",options="unnumbered"]
+|===
+|Requirement 11
+a|/req/base/isometadatatype/resolution
+
+Each MD_Resolution value SHALL be encoded as an XML object matching the XML Schema type as defined in: 
+
+https://standards.iso.org/iso/19115/-3/mri/1.0/identification.xsd
+|===
+
+Examples:
+
+[source%unnumbered,xml]
+----
+a)	<mri:equivalentScale>
+        <mri:MD_RepresentativeFraction>
+            <mri:denominator>
+                <gco:Integer>10000</gco:Integer>
+            </mri:denominator>
+        </mri:MD_RepresentativeFraction>
+    </mri:equivalentScale>
+b)	<mri:distance> 
+        <gco:Distance uom="m">10</gco:Distance> 
+    </mri:distance> 
+c)	<mri:vertical> 
+        <gco:Distance uom="m">1</gco:Distance> 
+    </mri:vertical>
+d)	<mri:angularDistance> 
+        <gco:Angle uom="degree">0.01</gco:Angle> 
+    </mri:angularDistance> 
+e)	<mri:levelOfDetail> 
+        <gco:CharacterString>High resolution imagery suitable for urban analysis</gco:CharacterString> 
+    </mri:levelOfDetail> 
+----

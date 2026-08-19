@@ -1,48 +1,55 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/base/isoqualitytype
 |Dependency |JSON
-|Requirement 9 |/req/base/isoqualitytype/element
+|Requirement 12|/req/base/isoqualitytype/element
 |===
 
-The QualityElement object is encoded as a JSON object with properties shown in Table 1.
+The QualityElement object is encoded as a JSON object with properties shown in <<table-qualityelement-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 9 |/req/base/isoqualitytype/element
+|Requirement 12
+a|/req/base/isoqualitytype/element
 
-Each QualityElement value SHALL be encoded as a JSON object with properties shown in Table 1.
+Each QualityElement value SHALL be encoded as a JSON object with properties shown in <<table-qualityelement-properties>>.
 |===
 
+[[table-qualityelement-properties]]
 .QualityElement properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |JSON Property |Definition |Data type and values |Obligation
 |type |The type of the quality element object. |CharacterString [1..1] |Mandatory
 |measure |Reference to measure used. |MeasureReference [1..1] |Mandatory
-|evaluationMethod |Evaluation information. |EvaluationMethod [1..1] |Mandatory
+|evaluationMethod |Evaluation information. |EvaluationMethod [1..*] |Mandatory
 |result |Value obtained from applying a data quality measure. |QualityResult [1..*] |Mandatory
 |===
 
 Example:
 
- {
-   "type": "FormatConsistency",
-   "measure": {
-      "measureDescription": "Percentage of training samples with inconsistent image format"
-   },
-   "evaluationMethod": {
+[source%unnumbered,json]
+----
+{
+  "type": "FormatConsistency",
+  "measure": {
+    "measureDescription": "Percentage of training samples with inconsistent image format"
+  },
+  "evaluationMethod": [
+    {
       "evaluationMethodDescription": "Full test method to calculate the percentage of training samples with an inconsistent format"
-   },
-   "result": [
-      {
-         "quantitativeResult": {
-         "value": [
-            0
-         ],
-         "valueUnit": "%"
-         }
+    }
+  ],
+  "result": [
+    {
+      "quantitativeResult": {
+        "value": [
+          0
+        ],
+        "valueUnit": "%"
       }
-   ]
- }
+    }
+  ]
+}
+----

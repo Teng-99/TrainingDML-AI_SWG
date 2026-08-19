@@ -1,14 +1,14 @@
 == Conformance
 
-This Standard defines a JSON encoding for AI training datasets. The standardization target for this Standard is:
+This document defines a JSON encoding for AI training datasets. The standardization target for this Standard is:
 
 * TrainingDML-AI JSON Encoding Schema
 
-Conformance with this Standard shall be checked using all the relevant tests specified in Annex A (normative) of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and https://www.opengeospatial.org/cite[the OGC Compliance Testing website].
+Conformance with this Standard shall be checked using all the relevant tests specified in <<annex-ats>> of this document. The framework, concepts, and methodology for testing, and the criteria to be achieved to claim conformance are specified in the OGC Compliance Testing Policies and Procedures and the <<BIB-OGC-Compliance>>.
 
 All requirements-classes and conformance-classes described in this document are owned by the standard identified.
 
-This standard identifies eleven (11) conformance classes. Each conformance class is defined by one requirements class. The tests in Annex A are organized by requirements class. So an implementation of each conformance class must pass all tests specified in Annex A for the respective requirements class.
+This document identifies eleven (11) conformance classes. Each conformance class is defined by one requirements class. The tests in <<annex-ats>> are organized by requirements class. So an implementation of each conformance class must pass all tests specified in <<annex-ats>> for the respective requirements class.
 
 Of these eleven conformance classes, only the AI_TrainingDataset conformance class is mandatory. All other conformance classes are optional. In the case where a conformance class has a dependency on another conformance class, that conformance class should also be implemented.
 

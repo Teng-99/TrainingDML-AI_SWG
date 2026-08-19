@@ -3,5 +3,8 @@
 [%metadata]
 identifier:: http://www.opengis.net/spec/TrainingDML-AI-1/1.0/req/ailabel 
 subject:: Implementation Standard
+inherit:: ISO 19101-1:2014
+inherit:: ISO 19103:2024
+inherit:: IETF RFC 2046
 inherit:: /req/aitrainingdata
 ====

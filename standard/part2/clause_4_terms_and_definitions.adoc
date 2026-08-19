@@ -28,23 +28,22 @@ SOURCE: https://www.ibm.com/topics/deep-learning
 === Dataset
 identifiable collection of data
 
-----
-Note 1 to entry: A dataset can be a smaller grouping of data which, though limited by some constraint such as spatial extent or feature type, is located physically within a larger dataset. Theoretically, a dataset can be as small as a single feature or feature attribute contained within a larger dataset. A hardcopy map or chart can be considered a dataset.
-----
+
+NOTE: A dataset can be a smaller grouping of data which, though limited by some constraint such as spatial extent or feature type, is located physically within a larger dataset. Theoretically, a dataset can be as small as a single feature or feature attribute contained within a larger dataset. A hardcopy map or chart can be considered a dataset.
 
 {empty}[SOURCE: ISO 19115‑1:2014, 4.3]
 
 [[training-dataset-definition]]
 === Training Dataset
-
-is a collection of samples, often labeled in terms of supervised learning. A training dataset can be divided into training, validation, and test sets. Training samples are different from samples in OGC Observations & Measurements (O&M). They are often collected in purposive ways that deviate from purely probability sampling, with known or expected results labeled as values of a dependent variable for generating a trained predictive model.
+a collection of samples, often labelled with known terms or expected values for supervised learning. A training dataset can be divided into training, validation, and test sets. Training samples are different from samples in OGC Observations & Measurements (O&M). They are often collected in purposive ways that deviate from purely probability sampling, with known or expected results labeled as values of a dependent variable for generating a trained predictive model.
 
 SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 1: Conceptual Model Standard
 
 [[label-definition]]
 === Label
-
 refers to known or expected results annotated as values of a dependent variable in training samples. A training sample label is different from those on a geographical map, which are known as map labels or annotations.
+
+NOTE: A training sample label is different from those on a geographical map, which are known as map labels or annotations.
 
 SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 1: Conceptual Model Standard
 
@@ -72,7 +71,7 @@ SOURCE: W3C (https://www.w3.org/TR/prov-overview/)
 [[quality-definition]]
 === Quality
 
-degree to which a set of inherent characteristics of an object fulfils requirements [ISO 9000:2015, 3.6.2, modified－Notes 1 and 2 to entry have been deleted]. Quality of training data (such as data imbalance and mislabeling) can impact the performance of AI/ML models.
+degree to which a set of inherent characteristics of an object fulfils requirements [ISO 9000:2015, 3.6.2, modified — Notes 1 and 2 to entry have been deleted]. Quality of training data (such as data imbalance and mislabeling) can impact the performance of AI/ML models.
 
 SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 1: Conceptual Model Standard
 
@@ -107,7 +106,7 @@ SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingD
 [[change-detection-definition]]
 === Change Detection
 
-task that finds the changes in an area between images taken at different times.
+recognition of changes between images acquired at different times.
 
 SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 1: Conceptual Model Standard
 
@@ -131,7 +130,7 @@ SOURCE: OGC Training Data Markup Language for Artificial Intelligence (TrainingD
 
 is a lightweight, text-based, language-independent syntax for defining data interchange formats. It was derived from the ECMAScript programming language but is programming language independent. JSON defines a small set of structuring rules for the portable representation of structured data.
 
-SOURCE: ECMA-404 The JSON data interchange syntax 2nd edition, December 2017
+SOURCE: <<ISOIEC21778>>
 
 [[json-schema-definition]]
 === JSON Schema

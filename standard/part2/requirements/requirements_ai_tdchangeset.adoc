@@ -1,22 +1,24 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/aitdchangeset
 |Dependency |JSON
 |Dependency |/req/base/jsonbasetype
-|Dependency |/req/tdtrainingdata
-|Requirement 29 |/req/aitdchangeset/tdchangeset
+|Dependency |/req/aitrainingdata
+|Requirement 32|/req/aitdchangeset/tdchangeset
 |===
 
-The AI_TDChangeset object is encoded as a JSON object with properties shown in Table 17.
+The AI_TDChangeset object is encoded as a JSON object with properties shown in <<table-ai-tdchangeset-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 29 |/req/aitdchangeset/tdchangeset
+|Requirement 32
+a|/req/aitdchangeset/tdchangeset
 
-Each AI_TDChangeset object SHALL implement the Mandatory properties as shown in Table 17.
+Each AI_TDChangeset object SHALL implement the Mandatory properties as shown in <<table-ai-tdchangeset-properties>>.
 |===
 
+[[table-ai-tdchangeset-properties]]
 .AI_ TDChangeset properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -34,11 +36,68 @@ Each AI_TDChangeset object SHALL implement the Mandatory properties as shown in 
 
 Example:
 
- {
-   "type": "AI_TDChangeset",
-   "id": "changeset-dota_v1.5",
-   "datasetId": "dota_v1.5",
-   "createdTime": "2019-01-01",
-   "changeCount": 9, 
-   "modify": [{"type": "AI_EOTrainingData", "id": "P1228", "dataSources": [{"title": "GF"}], "dataURL": ["train/images/P1228.png"], "numberOfLabels": 50, "trainingType": "training", "labels": [{"type": "AI_ObjectLabel", "class": "ship", "object": {"type": "Feature", "properties": {}, "geometry": {"type": "Polygon", "coordinates": [[[2306.0, 729.0], [2330.0, 729.0], [2330.0, 744.0], [2306.0, 744.0], [2306.0,729.0]]]}},"bboxType": "Horizontal BBox"}, …]}]
- }
+[source%unnumbered,json]
+----
+{
+  "type": "AI_TDChangeset",
+  "id": "changeset-dota_v1.5",
+  "datasetId": "dota_v1.5",
+  "createdTime": "2019-01-01",
+  "changeCount": 9,
+  "modify": [
+    {
+      "type": "AI_EOTrainingData",
+      "id": "P1228",
+      "dataSources": [
+        {
+          "title": "GF"
+        }
+      ],
+      "dataURL": [
+        "train/images/P1228.png"
+      ],
+      "numberOfLabels": 50,
+      "trainingType": "training",
+      "labels": [
+        {
+          "type": "AI_ObjectLabel",
+          "class": "ship",
+          "object": {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    2306.0,
+                    729.0
+                  ],
+                  [
+                    2330.0,
+                    729.0
+                  ],
+                  [
+                    2330.0,
+                    744.0
+                  ],
+                  [
+                    2306.0,
+                    744.0
+                  ],
+                  [
+                    2306.0,
+                    729.0
+                  ]
+                ]
+              ]
+            }
+          },
+          "bboxType": "Horizontal BBox"
+        },
+        …
+      ]
+    }
+  ]
+}
+----

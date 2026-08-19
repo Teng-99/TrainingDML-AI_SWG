@@ -1,48 +1,23 @@
-[[abstract]]
-[big]*i.     Abstract*
+[abstract]
+== Abstract
 
 The OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 3: XML Encoding Standard defines requirements for encoding AI training datasets as Extensible Markup Language (XML). XML is a widely utilized format for encoding data in various applications. It employs a markup structure where data is enclosed in tags represented by opening and closing elements. These elements can have attributes and may contain nested elements, allowing for a hierarchical representation of structured information. TrainingDML-AI Part 3 is based on the OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 1: Conceptual Model Standard.
 
-[[keywords]]
-[big]*ii.    Keywords*
-
-The following are keywords to be used by search engines and document catalogues.
-
-ogcdoc, OGC document, artificial intelligence, machine learning, deep learning, earth observation, remote sensing, training data, training sample, encoding, XML
-
-[[preface]]
-[big]*iii.   Preface*
+== Preface
 
 Attention is drawn to the possibility that some of the elements of this document may be the subject of patent rights. The Open Geospatial Consortium shall not be held responsible for identifying any or all such patent rights.
 
-[[security_considerations]]
-[big]*iv.    Security Considerations*
+== Security considerations
 
 No security considerations have been made for this Standard.
 
-[[submitting_organizations]]
-[big]*v.    Submitting organizations*
-
-The following organizations submitted this Document to the Open Geospatial Consortium (OGC): 
-
-* Wuhan University
-* Luoyao Information Technology Co., Ltd
-* Pixalytics Ltd
-* WiSC Enterprises
-* George Mason University
-* Laboratoire d'Informatique de Grenoble
-* Wuhan University of Technology
-* Hubei University
-* Chongqing Changan Zhitu Technology Co., Ltd
-
-
-[[submitters]]
-[big]*vi.     Submitters*
+== Submitters
 
 All questions regarding this submission should be directed to the editors or the submitters:
 
+[options="header"]
 |===
-|*Name* |*Affiliation*
+|Name |Affiliation
 |Peng Yue |Wuhan University
 |Ruixiang Liu |Wuhan University
 |Kaixuan Wang |Wuhan University
@@ -59,7 +34,6 @@ All questions regarding this submission should be directed to the editors or the
 |Kai Yan |Chongqing Changan Zhitu Technology Co., Ltd
 |===
 
-[[acknowledgments]]
-[big]*vii.    Acknowledgments*
+== Acknowledgments
 
 Thanks to the members of the TrainingDML-AI Standards Working Group of the OGC as well as all contributors of change requests and comments. In particular: Scott Simmons, Carl Reed, Sam Meek, Yongyi Mi, Chenxiao Zhang, Zhipeng Cao, Shuaiqi Liu, Ming Zhao, Hanwen Xu, Haipeng Deng, Baoxin Teng.

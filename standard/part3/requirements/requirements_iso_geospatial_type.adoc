@@ -1,17 +1,18 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/base/geospatialtype
 |Dependency |XML
 |Dependency |GML
-|Requirement 10|/req/base/geospatialtype/feature
+|Requirement 13|/req/base/geospatialtype/feature
 |===
 
 The encoding of one or more features follows GML for encoding a Feature element, with members “type”, “geometry” and “properties”. A Feature element represents a spatially bounded thing. Every Feature element is a GML element no matter where it occurs in a GML text.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 10|/req/base/geospatialtype/feature
+|Requirement 13
+a|/req/base/geospatialtype/feature
 
 Each Feature value SHALL be encoded using the GML feature encoding defined by OpenGIS in GML Section 3.2:
 
@@ -20,6 +21,8 @@ http://www.opengis.net/gml/3.2
 
 Examples of Feature encodings are:
 
+[source%unnumbered,xml]
+----
  a) <gml:metaDataProperty>
         <gml:GenericMetaData>
             <truncated>0.0</truncated>
@@ -66,3 +69,4 @@ Examples of Feature encodings are:
             </gml:element>
         </gml:GeometricComplex>
     </gml:location>
+----

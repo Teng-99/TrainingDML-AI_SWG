@@ -1,38 +1,43 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/ailabeling
 |Dependency |XML
 |Dependency |/req/base/xmlbasetype
 |Dependency |/req/base/isometadatatype
-|Requirement 24|/req/ailabeling/labeling
-|Requirement 25|/req/ailabeling/labeler
-|Requirement 26|/req/ailabeling/labelingprocedure
-|Requirement 27|/req/ailabeling/labelingmethodcode
+|Requirement 27|/req/ailabeling/labeling
+|Requirement 28|/req/ailabeling/labeler
+|Requirement 29|/req/ailabeling/labelingprocedure
+|Requirement 30|/req/ailabeling/labelingmethodcode
 |===
 
-The AI_Labeling object is encoded as an XML element with properties shown in Table 13.
+The AI_Labeling object is encoded as an XML element with properties shown in <<table-ai-labeling-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 24|/req/ailabeling/labeling
+|Requirement 27
+a|/req/ailabeling/labeling
 
-Each AI_Labeling object SHALL implement the Mandatory properties shown in Table 13.
+Each AI_Labeling object SHALL implement the Mandatory properties shown in <<table-ai-labeling-properties>>.
 |===
 
-.AI_ Labeling properties
+[[table-ai-labeling-properties]]
+.AI_Labeling properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |XML Property |Definition |Data type and values |Obligation
 |type |Type of the labeling object. |"AI_Labeling" |Mandatory
 |id |Identifier of the labeling. |CharacterString [1..1] |Mandatory
 |scope |Description of the scope of the labeling. |MD_Scope [1..1] |Mandatory
+|labelingTime |Date and time at which the labeling procedure was carried out. |DateTime  [0..1] |Optional
 |labelers |Labelers of the labeling activity. |AI_Labeler [0..*] |Optional
 |procedure |Procedure used in the labeling activity. |AI_LabelingProcedure [0..1] |Optional
 |===
 
 Example:
 
+[source%unnumbered,xml]
+----
    <type>AI_Labeling</type>
    <id>0</id>
    <scope>
@@ -47,19 +52,23 @@ Example:
          </mcc:MD_ScopeDescription>
       </mcc:levelDescription>
    </scope>
+   <dataTime>2015-04-20T07:04:15Z</dataTime>
    <labelers>...</labelers>
    <procedure>...</procedure>
+----
 
-The AI_Labeler object is encoded as an XML element with properties as shown in Table 14.
+The AI_Labeler object is encoded as an XML element with properties as shown in <<table-ai-labeler-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 25|/req/ailabeling/labeler
+|Requirement 28
+a|/req/ailabeling/labeler
 
-Each AI_Labeler object SHALL implement the Mandatory properties shown in Table 14.
+Each AI_Labeler object SHALL implement the Mandatory properties shown in <<table-ai-labeler-properties>>.
 |===
 
-.AI_ Labeler properties
+[[table-ai-labeler-properties]]
+.AI_Labeler properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |XML Property |Definition |Data type and values |Obligation
@@ -70,20 +79,25 @@ Each AI_Labeler object SHALL implement the Mandatory properties shown in Table 1
 
 Example:
 
+[source%unnumbered,xml]
+----
    <type>AI_Labeler</type>
    <id>0</id>
    <name>Tom</name>
+----
 
-The AI_LabelingProcedure object is encoded as an XML element with properties as shown in Table 15.
+The AI_LabelingProcedure object is encoded as an XML element with properties as shown in <<table-ai-labelingprocedure-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 26|/req/ailabeling/labelingprocedure
+|Requirement 29
+a|/req/ailabeling/labelingprocedure
 
-Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown in Table 15.
+Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown in <<table-ai-labelingprocedure-properties>>.
 |===
 
-.AI_ LabelingProcedure properties
+[[table-ai-labelingprocedure-properties]]
+.AI_LabelingProcedure properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |XML Property |Definition |Data type and values |Obligation
@@ -95,24 +109,31 @@ Each AI_LabelingProcedure object SHALL implement the Mandatory properties shown 
 
 Example:
 
+[source%unnumbered,xml]
+----
    <type>AI_LabelingProcedure</type>
    <id>0</id>
    <methods>manual</methods>
    <tools>ArcGIS</tools>
+----
 
 
-The AI_LabelingMethodCode is encoded as a text string whose value is one of “manual”, “semi-automatic”, “automatic” or “unkonwn”.
+The AI_LabelingMethodCode is encoded as a text string whose value is one of “manual”, “semi-automatic”, “automatic” or “unknown”.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 27|/req/ailabeling/labelingmethodcode
+|Requirement 30
+a|/req/ailabeling/labelingmethodcode
 
 Each AI_LabelingMethodCode value SHALL be a text string whose value is one of “manual”, “semi-automatic”, “automatic” or “unknown”.
 |===
 
 Examples:
 
- a)   manual
- b)   semi-automatic
- c)   automatic
- d)   unknown
+[source%unnumbered,text]
+----
+ a)   "manual"
+ b)   "semi-automatic"
+ c)   "automatic"
+ d)   "unknown"
+----

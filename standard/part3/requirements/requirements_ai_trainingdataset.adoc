@@ -1,4 +1,4 @@
-[width="100%",cols="20%,80%",options="header",]
+[width="100%",cols="20%,80%",options="header,unnumbered"]
 |===
 2+|*Requirements class* 
 2+|/req/aitrainingdataset
@@ -10,20 +10,22 @@
 |Dependency |/req/ailabeling
 |Dependency |/req/aidataquality
 |Dependency |/req/aitdchangeset
-|Requirement 11|/req/aitrainingdataset/trainingdataset
-|Requirement 12|/req/aitrainingdataset/metricsinliterature
-|Requirement 13|/req/aitrainingdataset/eotrainingdataset
+|Requirement 14|/req/aitrainingdataset/trainingdataset
+|Requirement 15|/req/aitrainingdataset/metricsinliterature
+|Requirement 16|/req/aitrainingdataset/eotrainingdataset
 |===
 
-The AI_TrainingDataset object is encoded as an XML element with properties shown in Table 2.
+The AI_TrainingDataset object is encoded as an XML element with properties shown in <<table-ai-trainingdataset-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 11|/req/aitrainingdataset/trainingdataset
+|Requirement 14
+a|/req/aitrainingdataset/trainingdataset
 
-Each AI_TrainingDataset object SHALL implement the Mandatory properties shown in Table 2.
+Each AI_TrainingDataset object SHALL implement the Mandatory properties shown in <<table-ai-trainingdataset-properties>>.
 |===
 
+[[table-ai-trainingdataset-properties]]
 .AI_TrainingDataset properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -45,8 +47,11 @@ Each AI_TrainingDataset object SHALL implement the Mandatory properties shown in
 |statisticsInfo |Statistical results for training samples in each class. |NamedValue [0..*] |Optional
 |dataSources |Citation for the data sources. |CI_Citation [0..*] |Optional
 |numberOfClasses |Total number of classes in the AI training dataset. |Int [0..1] |Optional
-|classificationSchema |Classification schema for classes used in the AI training dataset. |CharacterString [0..1] |Optional
+|classificationScheme |Classification scheme for classes used in the AI training dataset. |CharacterString [0..1] |Optional
 |classes |Classes used in the AI training dataset. |NamedValue [1..1] |Optional
+|extent |Spatial extent of the training dataset. |EX_Extent [0..1] |Optional
+|referenceSystem |Reference system of the training dataset. |MD_ReferenceSystem [0..1] |Optional
+|lineage |Information about the provenance, source(s), and/or the production process(es) applied to the training dataset. |LI_Lineage [0..*] |Optional
 |tasks |Task description of the training dataset. |AI_Task [1..*] |Mandatory
 |labeling |Provenance information of how the training dataset is labeled. |AI_Labeling [0..*] |Optional
 |quality |Quality information of the training dataset. |DataQuality [0..*] |Optional
@@ -56,6 +61,8 @@ Each AI_TrainingDataset object SHALL implement the Mandatory properties shown in
 
 Example:
 
+[source%unnumbered,xml]
+----
    <type>AI_AbstractTrainingDataset</type>
    <id>whu_rs19</id>
    <name>WHU-RS19</name>
@@ -143,6 +150,33 @@ Example:
       <key>Viaduct</key>
       <value>null</value>
    </classes>
+   <extent>
+      <gex:geographicElement>
+         <gex:EX_GeographicBoundingBox>
+            <gex:westBoundLongitude>
+               <gco:Decimal>-180</gco:Decimal>
+            </gex:westBoundLongitude>
+            <gex:eastBoundLongitude>
+               <gco:Decimal>180</gco:Decimal>
+            </gex:eastBoundLongitude>
+            <gex:southBoundLatitude>
+               <gco:Decimal>-90</gco:Decimal>
+            </gex:southBoundLatitude>
+            <gex:northBoundLatitude>
+               <gco:Decimal>90</gco:Decimal>
+            </gex:northBoundLatitude>
+         </gex:EX_GeographicBoundingBox>
+      </gex:geographicElement>
+   </extent>
+   <mrs:MD_ReferenceSystem>
+   <mrs:referenceSystemIdentifier>
+      <mcc:MD_Identifier>
+         <mcc:code>
+         <gco:CharacterString>EPSG:4326</gco:CharacterString>
+         </mcc:code>
+      </mcc:MD_Identifier>
+   </mrs:referenceSystemIdentifier>
+   </mrs:MD_ReferenceSystem>
    <tasks>
       <type>AI_EOTask</type>
       <id>whu_rs19-task</id>
@@ -163,16 +197,19 @@ Example:
          <class>Airport</class>
       </labels>
    </data>
+----
 
-If the optional element AI_MetricsInLiterature is specified, this element is encoded as XML element with properties as shown in Table 3.
+If the optional element AI_MetricsInLiterature is specified, this element is encoded as XML element with properties as shown in <<table-ai-metricsinliterature-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 12|/req/aitrainingdataset/metricsinliterature
+|Requirement 15
+a|/req/aitrainingdataset/metricsinliterature
 
-Each AI_MetricsInLiterature value SHALL implement the Mandatory properties shown in Table 3.
+Each AI_MetricsInLiterature value SHALL implement the Mandatory properties shown in <<table-ai-metricsinliterature-properties>>.
 |===
 
+[[table-ai-metricsinliterature-properties]]
 .AI_MetricsInLiterature properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
@@ -184,34 +221,40 @@ Each AI_MetricsInLiterature value SHALL implement the Mandatory properties shown
 
 Example:
 
+[source%unnumbered,xml]
+----
    <doi>10.1109/TGRS.2019.2917161</doi>
    <algorithm>FACNN</algorithm>
    <metrics>
       <key>Overall Accuracy</key>
       <value>0.9881</value>
    </metrics>
+----
 
-The AI_EOTrainingDataset object is encoded as an XML element with properties shown in Table 2 and Table 4.
+The AI_EOTrainingDataset object is encoded as an XML element with properties shown in <<table-ai-trainingdataset-properties>> and <<table-ai-eotrainingdataset-properties>>.
 
-[width="100%",cols="20%,80%",]
+[width="100%",cols="20%,80%",options="unnumbered"]
 |===
-|Requirement 13|/req/aitrainingdataset/eotrainingdataset
+|Requirement 16
+a|/req/aitrainingdataset/eotrainingdataset
 
-Each AI_EOTrainingDataset object SHALL implement the Mandatory properties both shown in Table 2 and Table 4.
+Each AI_EOTrainingDataset object SHALL implement the Mandatory properties both shown in <<table-ai-trainingdataset-properties>> and <<table-ai-eotrainingdataset-properties>>.
 |===
 
+[[table-ai-eotrainingdataset-properties]]
 .AI_EOTrainingDataset properties
 [width="100%",cols="25%,25%,25%,25%",options="header",]
 |===
 |XML Property |Definition |Data type and values |Obligation
 |type |Type of the training dataset. |"AI_EOTrainingDataset" |Mandatory
-|extent |Spatial extent of the EO training dataset. |EX_Extent [0..1] |Optional
-|bands |Bands description of the images used in the EO training dataset. |MD_Band [0..*] |Optional
-|imageSize |Size of the images used in the EO training dataset. |ChracterString [0..1] |Optional
+|bands |Description of the image bands used in the EO training dataset. |MD_Band [0..*] |Optional
+|imageSize |Size of the images used in the EO training dataset. |CharacterString [0..1] |Optional
 |===
 
 Example:
 
+[source%unnumbered,xml]
+----
    <type>AI_EOTrainingDataset</type>
    <id>whu_rs19</id>
    <name>WHU-RS19</name>
@@ -317,6 +360,15 @@ Example:
          </gex:EX_GeographicBoundingBox>
       </gex:geographicElement>
    </extent>
+   <mrs:MD_ReferenceSystem>
+   <mrs:referenceSystemIdentifier>
+      <mcc:MD_Identifier>
+         <mcc:code>
+         <gco:CharacterString>EPSG:4326</gco:CharacterString>
+         </mcc:code>
+      </mcc:MD_Identifier>
+   </mrs:referenceSystemIdentifier>
+   </mrs:MD_ReferenceSystem>
    <bands>
       <mrc:name>
          <mcc:MD_Identifier>
@@ -365,3 +417,4 @@ Example:
          <class>Airport</class>
       </labels>
    </data>
+----
