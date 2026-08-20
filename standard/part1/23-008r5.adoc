@@ -9,7 +9,7 @@
 :edition: 1.0.1
 :received-date: 2026-03-01
 :issued-date: 2026-04-28
-:published-date: 2026-mm-dd
+:published-date: 2026-08-20
 :copyright-year: 2026
 :external-id: http://www.opengis.net/doc/is/trainingdml-ai-1/1.0
 :docnumber: 23-008r5
