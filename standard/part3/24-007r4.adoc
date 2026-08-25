@@ -1,0 +1,62 @@
+= OGC Training Data Markup Language for Artificial Intelligence (TrainingDML-AI) Part 3: XML Encoding Standard
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: approved
+:committee: technical
+:workgroup: TrainingDML-AI Standards Working Group
+:docsubtype: encoding
+:edition: 1.0.1
+:received-date: 2026-03-01
+:issued-date: 2026-04-28
+:published-date: 2026-08-20
+:copyright-year: 2026
+:external-id: http://www.opengis.net/doc/is/tdml-part3/1.0
+:docnumber: 24-007r4
+:fullname: Peng Yue
+:role: editor
+:fullname_2: Ruixiang Liu
+:role_2: editor
+:fullname_3: Kaixuan Wang
+:role_3: editor
+:keywords: ogcdoc, OGC document, artificial intelligence, machine learning, deep learning, earth observation, remote sensing, training data, training sample, encoding, XML
+:submitting-organizations: Wuhan University; Luoyao Information Technology Co., Ltd; Pixalytics Ltd; WiSC Enterprises; George Mason University; Laboratoire d'Informatique de Grenoble; Wuhan University of Technology; Hubei University; Chongqing Changan Zhitu Technology Co., Ltd
+:mn-document-class: ogc
+:mn-output-extensions: html
+//:htmlstylesheet-override: ./part3-html-overrides.css
+:local-cache-only:
+:pdf-uri: ./24-007r4.pdf
+
+////
+Make sure to complete each included document
+////
+include::clause_0_front_material.adoc[]
+
+include::clause_1_scope.adoc[]
+
+include::clause_2_conformance.adoc[]
+
+include::clause_3_normative_references.adoc[]
+
+include::clause_4_terms_and_definitions.adoc[]
+
+include::clause_5_conventions.adoc[]
+
+include::clause_6_overview.adoc[]
+
+include::clause_7_requirements_for_tdml_ai_xml_encoding.adoc[]
+
+////
+add or remove annexes after "A" as necessary
+////
+include::annex-ats.adoc[]
+
+include::annex-example.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::annex-history.adoc[]
+
+include::annex-bibliography.adoc[]

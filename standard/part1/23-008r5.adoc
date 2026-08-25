@@ -4,14 +4,19 @@
 :lang: en
 :status: approved
 :committee: technical
-:draft: 1.0.1
+:workgroup: TrainingDML-AI Standards Working Group
+:docsubtype: conceptual-model
+:edition: 1.0.1
+:received-date: 2026-03-01
+:issued-date: 2026-04-28
+:published-date: 2026-08-20
+:copyright-year: 2026
 :external-id: http://www.opengis.net/doc/is/trainingdml-ai-1/1.0
 :docnumber: 23-008r5
-:received-date: 2023-01-27
-:issued-date: 2023-07-26
-:published-date: 2023-09-19
 :fullname: Peng Yue
+:role: editor
 :fullname_2: Boyi Shangguan
+:role_2: editor
 :docsubtype: conceptual-model
 :keywords: ogcdoc, OGC document, artificial intelligence, machine learning, deep learning, earth observation, remote sensing, training data, training sample, UML
 :submitting-organizations: Wuhan University; Pixalytics Ltd; WiSC Enterprises; George Mason University; Laboratoire d'Informatique de Grenoble; South Digital Technology Co., Ltd; Wuhan University of Technology; Hubei University; Chongqing Changan Automobile Co., Ltd
@@ -23,8 +28,6 @@
 :local-cache-only:
 :data-uri-image:
 :pdf-uri: ./23-008r5.pdf
-:edition: 1.0.1
-
 
 ////
 Make sure to complete each included document
